@@ -39,7 +39,9 @@ serde_json = "1.0.117"
 
 **How to use:**
 
-> Running this command will automatically serialize your JSON textfile and perform
-> string-parsing as per defined dictionary.
+Running this command will automatically serialize your JSON textfile and perform
+string-parsing as per defined dictionary.
 
-> > cargo run -- "input_dir" "output_dir"
+```
+cargo run -- "input_dir" "output_dir"
+```
