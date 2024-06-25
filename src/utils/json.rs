@@ -34,7 +34,7 @@ impl JsonDict {
 
 pub fn create_json() -> JsonDict {
     return JsonDict {
-        name: "SS_MM".to_string(),
+        name: "MI_SUB".to_string(),
         mode: "NULLABLE".to_string(),
         r#type: "STRING".to_string(),
         description: None,
@@ -60,6 +60,7 @@ pub fn ser(input: String) -> Option<Vec<JsonDict>> {
 pub fn parse_string(input: JsonDict, dict: &HashMap<&str, &str>) -> JsonDict {
     let output = input.parse_description(dict);
 
+    println!("{:#?}", output);
     return output;
 }
 
