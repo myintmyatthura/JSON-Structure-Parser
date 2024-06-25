@@ -7,7 +7,7 @@ pub struct JsonDict {
     pub name: String,
     pub mode: String,
     pub r#type: String,
-    pub description: Option<String>,
+    pub description: String,
     pub fields: Vec<String>,
 }
 
@@ -26,7 +26,7 @@ impl JsonDict {
         }
 
         let final_value = new_parts.join(" ");
-        self.description = Some(final_value);
+        self.description = final_value;
 
         self
     }
@@ -37,7 +37,7 @@ pub fn create_json() -> JsonDict {
         name: "MI_SUB".to_string(),
         mode: "NULLABLE".to_string(),
         r#type: "STRING".to_string(),
-        description: None,
+        description: "\"null\"".to_string(),
         fields: Vec::from([]),
     };
 }

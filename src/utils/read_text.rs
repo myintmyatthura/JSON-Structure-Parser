@@ -9,7 +9,6 @@ pub fn read_text() -> String {
         .parent()
         .expect("Failed to get parent directory\n");
 
-        
     // Create a relative path to file1.txt
     let file1_path = parent_dir.join("../input/file1.txt");
 
