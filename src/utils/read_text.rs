@@ -22,7 +22,7 @@ pub fn read_text() -> String {
     match fs::read_to_string(file1_path) {
         Ok(contents) => contents,
         Err(err) => {
-            eprintln!("Error reading file: {:?}", err);
+            eprintln!("Error reading file at: {:#?}", err);
             "".to_string()
         }
     }
