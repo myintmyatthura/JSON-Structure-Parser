@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 pub fn dictionary() -> HashMap<&'static str, &'static str> {
     let mut abbreviations = HashMap::new();
-
+    // abbreviations that must be added
     abbreviations.insert("AAA", "Advanced Authentication Algorithms");
     abbreviations.insert("MNO", "Mobile Network Operators");
     abbreviations.insert("SUB", "Subsystems");
