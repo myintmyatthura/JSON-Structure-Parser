@@ -32,6 +32,9 @@ impl JsonDict {
     }
 }
 
+/*
+This is an accurate representation of what our json object should look like
+*/
 pub fn create_json() -> JsonDict {
     return JsonDict {
         name: "MI_SUB".to_string(),
