@@ -2,7 +2,8 @@ use serde::{Deserialize, Serialize};
 use serde_json::from_str;
 use std::collections::HashMap;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+
 pub struct JsonDict {
     pub name: String,
     pub mode: String,
@@ -45,7 +46,7 @@ pub fn create_json() -> JsonDict {
     };
 }
 
-pub fn ser(input: String) -> Option<Vec<JsonDict>> {
+pub fn serialize(input: String) -> Option<Vec<JsonDict>> {
     //Deserialize the JSON string into your struct object
     let deserialized_obj: Result<Vec<JsonDict>, _> = from_str(&input);
 
@@ -65,6 +66,11 @@ pub fn parse_string(input: JsonDict, dict: &HashMap<&str, &str>) -> JsonDict {
 
     println!("{:#?}", output);
     return output;
+}
+
+pub fn parse_all(input: Vec<JsonDict>, dict: &HashMap<&str, &str>) -> Vec<JsonDict> {
+    let iter_dict = input.iter().map(|x| x.clone().parse_description(dict));
+    iter_dict.collect()
 }
 
 pub fn deser() {
