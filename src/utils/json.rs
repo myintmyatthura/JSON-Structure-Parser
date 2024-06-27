@@ -73,7 +73,7 @@ pub fn parse_all(input: Vec<JsonDict>, dict: &HashMap<&str, &str>) -> Vec<JsonDi
     iter_dict.collect()
 }
 
-pub fn deser() {
+pub fn deserialize() {
     println!("Need implementation!");
 }
 
