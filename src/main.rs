@@ -2,19 +2,18 @@ pub mod constants;
 pub mod utils;
 
 fn main() {
-    let parsed_string = utils::read_text::read_text();
-    let my_dict = constants::dictionary::dictionary();
-    let modified_contents = parsed_string.replace("null", "\"null\"");
+    use constants::dictionary::dictionary;
+    use utils::json::{deserialize, parse_all, serialize_to_json_pretty};
+    use utils::read_text::{read_text, write_text};
 
-    let collections = utils::json::serialize(modified_contents).unwrap();
+    let modified_contents = read_text().replace("null", "\"null\"");
+    let my_dict = dictionary();
 
-    let modified_collections = utils::json::parse_all(collections, &my_dict);
-
-    println!("{:#?}", modified_collections);
-
-    // let new_json_object = utils::json::create_json();
-    // let my_dict = constants::dictionary::dictionary();
-    // let _my_output = utils::json::parse_string(new_json_object, &my_dict);
-
-    // implement string-matching algorithm..
+    if let Some(collections) = deserialize(modified_contents) {
+        let modified_collections = parse_all(collections, &my_dict);
+        let my_string = serialize_to_json_pretty(&modified_collections);
+        write_text(&my_string);
+    } else {
+        eprintln!("Failed to deserialize the JSON content.");
+    }
 }

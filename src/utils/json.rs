@@ -1,9 +1,8 @@
 use serde::{Deserialize, Serialize};
-use serde_json::from_str;
+use serde_json::{from_str, to_string, to_string_pretty};
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-
 pub struct JsonDict {
     pub name: String,
     pub mode: String,
@@ -37,26 +36,24 @@ impl JsonDict {
 This is an accurate representation of what our json object should look like
 */
 pub fn create_json() -> JsonDict {
-    return JsonDict {
+    JsonDict {
         name: "MI_SUB".to_string(),
         mode: "NULLABLE".to_string(),
         r#type: "STRING".to_string(),
         description: "\"null\"".to_string(),
         fields: Vec::from([]),
-    };
+    }
 }
 
-pub fn serialize(input: String) -> Option<Vec<JsonDict>> {
-    //Deserialize the JSON string into your struct object
+pub fn deserialize(input: String) -> Option<Vec<JsonDict>> {
+    // Deserialize the JSON string into your struct object
     let deserialized_obj: Result<Vec<JsonDict>, _> = from_str(&input);
 
     match deserialized_obj {
-        Ok(obj) => {
-            return Some(obj);
-        }
+        Ok(obj) => Some(obj),
         Err(err) => {
             eprintln!("Error deserializing JSON: {:?}", err);
-            return None;
+            None
         }
     }
 }
@@ -65,7 +62,7 @@ pub fn parse_string(input: JsonDict, dict: &HashMap<&str, &str>) -> JsonDict {
     let output = input.parse_description(dict);
 
     println!("{:#?}", output);
-    return output;
+    output
 }
 
 pub fn parse_all(input: Vec<JsonDict>, dict: &HashMap<&str, &str>) -> Vec<JsonDict> {
@@ -73,10 +70,12 @@ pub fn parse_all(input: Vec<JsonDict>, dict: &HashMap<&str, &str>) -> Vec<JsonDi
     iter_dict.collect()
 }
 
-pub fn deserialize() {
-    println!("Need implementation!");
-}
-
-pub fn run_json() {
-    println!("Need implementation!");
+pub fn serialize_to_json_pretty(input: &Vec<JsonDict>) -> String {
+    match to_string_pretty(input) {
+        Ok(json_str) => json_str,
+        Err(err) => {
+            eprintln!("Error serializing JSON: {:?}", err);
+            String::new()
+        }
+    }
 }

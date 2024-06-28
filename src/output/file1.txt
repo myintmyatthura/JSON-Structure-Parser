@@ -1,0 +1,72 @@
+[
+  {
+    "name": "AA_AAA",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Acronym Analysis Advanced Authentication Algorithms",
+    "fields": []
+  },
+  {
+    "name": "MI_SUB",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Machine Intelligence Subsystems",
+    "fields": []
+  },
+  {
+    "name": "MB_KB",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Megabytes Kilobytes",
+    "fields": []
+  },
+  {
+    "name": "GB_FOR",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Gigabytes Fortran",
+    "fields": []
+  },
+  {
+    "name": "OP_MNO",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Operations Mobile Network Operators",
+    "fields": []
+  },
+  {
+    "name": "MNO_AA",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Mobile Network Operators Acronym Analysis",
+    "fields": []
+  },
+  {
+    "name": "SUB_MI_MB",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Subsystems Machine Intelligence Megabytes",
+    "fields": []
+  },
+  {
+    "name": "KB_GB",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Kilobytes Gigabytes",
+    "fields": []
+  },
+  {
+    "name": "FOR_OP",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Fortran Operations",
+    "fields": []
+  },
+  {
+    "name": "AAA_MNO",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Advanced Authentication Algorithms Mobile Network Operators",
+    "fields": []
+  }
+]
